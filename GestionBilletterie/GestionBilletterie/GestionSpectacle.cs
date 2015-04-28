@@ -11,11 +11,11 @@ using Oracle.DataAccess.Client;
 
 namespace GestionBilletterie
 {
-   public partial class Form1 : Form
+   public partial class GestionSpectacle : Form
    {
       DataSet dataSet = new DataSet();
       OracleConnection conn;
-      public Form1(OracleConnection connection)
+      public GestionSpectacle(OracleConnection connection)
       {         
          InitializeComponent();
          conn = connection;
@@ -55,7 +55,7 @@ namespace GestionBilletterie
             BindingSource bindingSource;
             bindingSource = new BindingSource(dataSet, "Spectacle");
              DGV_Spectacle.DataSource = bindingSource;
-             //DGV_Spectacle.Columns[2].Visible = false;
+             DGV_Spectacle.Columns[0].Visible = false;
          }
          catch (Exception se)
          {

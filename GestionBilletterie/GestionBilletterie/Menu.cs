@@ -57,7 +57,7 @@ namespace GestionBilletterie
 
       private void button1_Click(object sender, EventArgs e)
       {
-         Form1 dlg = new Form1(connection);
+         GestionSpectacle dlg = new GestionSpectacle(connection);
          dlg.ShowDialog();
       }
 

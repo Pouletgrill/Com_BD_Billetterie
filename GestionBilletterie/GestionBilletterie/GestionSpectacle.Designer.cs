@@ -1,6 +1,6 @@
 ﻿namespace GestionBilletterie
 {
-   partial class Form1
+   partial class GestionSpectacle
    {
       /// <summary>
       /// Variable nécessaire au concepteur.
@@ -42,6 +42,9 @@
          this.menuStrip1 = new System.Windows.Forms.MenuStrip();
          this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.editionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.rienToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.rienNonPlusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.vaVoirEditionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
          this.splitContainer1.Panel1.SuspendLayout();
          this.splitContainer1.Panel2.SuspendLayout();
@@ -82,6 +85,7 @@
          this.DGV_Spectacle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+         this.DGV_Spectacle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
          this.DGV_Spectacle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
          this.DGV_Spectacle.Location = new System.Drawing.Point(3, 61);
          this.DGV_Spectacle.MultiSelect = false;
@@ -138,6 +142,7 @@
          this.DGV_Representation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+         this.DGV_Representation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
          this.DGV_Representation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
          this.DGV_Representation.Location = new System.Drawing.Point(3, 61);
          this.DGV_Representation.MultiSelect = false;
@@ -201,17 +206,40 @@
          // 
          // fichierToolStripMenuItem
          // 
+         this.fichierToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.vaVoirEditionToolStripMenuItem});
          this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
          this.fichierToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
          this.fichierToolStripMenuItem.Text = "Fichier";
          // 
          // editionToolStripMenuItem
          // 
+         this.editionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rienToolStripMenuItem,
+            this.rienNonPlusToolStripMenuItem});
          this.editionToolStripMenuItem.Name = "editionToolStripMenuItem";
          this.editionToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
          this.editionToolStripMenuItem.Text = "Edition";
          // 
-         // Form1
+         // rienToolStripMenuItem
+         // 
+         this.rienToolStripMenuItem.Name = "rienToolStripMenuItem";
+         this.rienToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+         this.rienToolStripMenuItem.Text = "rien";
+         // 
+         // rienNonPlusToolStripMenuItem
+         // 
+         this.rienNonPlusToolStripMenuItem.Name = "rienNonPlusToolStripMenuItem";
+         this.rienNonPlusToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+         this.rienNonPlusToolStripMenuItem.Text = "rien non plus";
+         // 
+         // vaVoirEditionToolStripMenuItem
+         // 
+         this.vaVoirEditionToolStripMenuItem.Name = "vaVoirEditionToolStripMenuItem";
+         this.vaVoirEditionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+         this.vaVoirEditionToolStripMenuItem.Text = "va voir Edition";
+         // 
+         // GestionSpectacle
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -220,7 +248,7 @@
          this.Controls.Add(this.menuStrip1);
          this.MainMenuStrip = this.menuStrip1;
          this.MinimumSize = new System.Drawing.Size(537, 149);
-         this.Name = "Form1";
+         this.Name = "GestionSpectacle";
          this.Text = "Gestion spectacle";
          this.Load += new System.EventHandler(this.Form1_Load);
          this.splitContainer1.Panel1.ResumeLayout(false);
@@ -254,6 +282,9 @@
       private System.Windows.Forms.ToolStripMenuItem editionToolStripMenuItem;
       private System.Windows.Forms.DataGridView DGV_Spectacle;
       private System.Windows.Forms.DataGridView DGV_Representation;
+      private System.Windows.Forms.ToolStripMenuItem vaVoirEditionToolStripMenuItem;
+      private System.Windows.Forms.ToolStripMenuItem rienToolStripMenuItem;
+      private System.Windows.Forms.ToolStripMenuItem rienNonPlusToolStripMenuItem;
    }
 }
 
