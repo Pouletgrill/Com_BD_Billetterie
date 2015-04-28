@@ -30,6 +30,10 @@
       {
          this.button1 = new System.Windows.Forms.Button();
          this.button2 = new System.Windows.Forms.Button();
+         this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+         this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+         this.LB_ConnexionStatus = new System.Windows.Forms.ToolStripStatusLabel();
+         this.statusStrip1.SuspendLayout();
          this.SuspendLayout();
          // 
          // button1
@@ -51,18 +55,45 @@
          this.button2.Text = "Gestion Client";
          this.button2.UseVisualStyleBackColor = true;
          // 
+         // statusStrip1
+         // 
+         this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.LB_ConnexionStatus});
+         this.statusStrip1.Location = new System.Drawing.Point(0, 240);
+         this.statusStrip1.Name = "statusStrip1";
+         this.statusStrip1.Size = new System.Drawing.Size(284, 22);
+         this.statusStrip1.TabIndex = 3;
+         this.statusStrip1.Text = "statusStrip1";
+         // 
+         // toolStripStatusLabel1
+         // 
+         this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+         this.toolStripStatusLabel1.Size = new System.Drawing.Size(119, 17);
+         this.toolStripStatusLabel1.Text = "Status de connexion :";
+         // 
+         // LB_ConnexionStatus
+         // 
+         this.LB_ConnexionStatus.Name = "LB_ConnexionStatus";
+         this.LB_ConnexionStatus.Size = new System.Drawing.Size(58, 17);
+         this.LB_ConnexionStatus.Text = "Connecté";
+         // 
          // Menu
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.ClientSize = new System.Drawing.Size(284, 262);
+         this.Controls.Add(this.statusStrip1);
          this.Controls.Add(this.button2);
          this.Controls.Add(this.button1);
          this.Name = "Menu";
          this.Text = "Menu";
          this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Menu_FormClosing);
          this.Load += new System.EventHandler(this.Menu_Load);
+         this.statusStrip1.ResumeLayout(false);
+         this.statusStrip1.PerformLayout();
          this.ResumeLayout(false);
+         this.PerformLayout();
 
       }
 
@@ -70,5 +101,8 @@
 
       private System.Windows.Forms.Button button1;
       private System.Windows.Forms.Button button2;
+      private System.Windows.Forms.StatusStrip statusStrip1;
+      private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+      private System.Windows.Forms.ToolStripStatusLabel LB_ConnexionStatus;
    }
 }

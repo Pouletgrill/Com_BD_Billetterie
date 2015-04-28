@@ -23,7 +23,7 @@ namespace GestionBilletterie
 
       private void Form1_Load(object sender, EventArgs e)
       {
-
+         RefreshDGVSpectacle();
       }
       public void RefreshDGVSpectacle()
       {
@@ -31,14 +31,14 @@ namespace GestionBilletterie
          {
             // //déclaration de OracleCommand pour appeler la fonction avec la
             //connection conn.
-            OracleCommand Oracmd = new OracleCommand("PKG_GESTION",
+            OracleCommand Oracmd = new OracleCommand("PKG_BILLETS",
             conn);
-            Oracmd.CommandText = "PKG_GESTION.AFFICHERQUESTION";
+            Oracmd.CommandText = "PKG_BILLETS.AFFICHER_SPECTACLE";
             Oracmd.CommandType = CommandType.StoredProcedure;
             // pour une fonction, le paramètre de retour doit être déclaré en
             //premier.
             OracleParameter OrapameResultat = new
-            OracleParameter("CURSORGESTION", OracleDbType.RefCursor);
+            OracleParameter("RESULTSET", OracleDbType.RefCursor);
             OrapameResultat.Direction = ParameterDirection.ReturnValue;
             Oracmd.Parameters.Add(OrapameResultat);
 
@@ -46,16 +46,16 @@ namespace GestionBilletterie
             // on passe notre OracleCommand qui contient TOUS les paramètres.
 
             OracleDataAdapter orAdater = new OracleDataAdapter(Oracmd);
-            if (dataSet.Tables.Contains("Question"))
+            if (dataSet.Tables.Contains("Spectacle"))
             {
-               dataSet.Tables["Question"].Clear();
+               dataSet.Tables["Spectacle"].Clear();
             }
-            orAdater.Fill(dataSet, "Question");
+            orAdater.Fill(dataSet, "Spectacle");
             Oracmd.Dispose();
             BindingSource bindingSource;
-            bindingSource = new BindingSource(dataSet, "Question");
+            bindingSource = new BindingSource(dataSet, "Spectacle");
              DGV_Spectacle.DataSource = bindingSource;
-             DGV_Spectacle.Columns[2].Visible = false;
+             //DGV_Spectacle.Columns[2].Visible = false;
          }
          catch (Exception se)
          {

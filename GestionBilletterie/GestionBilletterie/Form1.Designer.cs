@@ -42,9 +42,6 @@
          this.menuStrip1 = new System.Windows.Forms.MenuStrip();
          this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.editionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-         this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-         this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-         this.LB_ConnexionStatus = new System.Windows.Forms.ToolStripStatusLabel();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
          this.splitContainer1.Panel1.SuspendLayout();
          this.splitContainer1.Panel2.SuspendLayout();
@@ -54,7 +51,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.DGV_Representation)).BeginInit();
          this.GB_Representation.SuspendLayout();
          this.menuStrip1.SuspendLayout();
-         this.statusStrip1.SuspendLayout();
          this.SuspendLayout();
          // 
          // splitContainer1
@@ -75,20 +71,26 @@
          // 
          this.splitContainer1.Panel2.Controls.Add(this.DGV_Representation);
          this.splitContainer1.Panel2.Controls.Add(this.GB_Representation);
-         this.splitContainer1.Panel2MinSize = 258;
-         this.splitContainer1.Size = new System.Drawing.Size(518, 373);
+         this.splitContainer1.Panel2MinSize = 260;
+         this.splitContainer1.Size = new System.Drawing.Size(518, 397);
          this.splitContainer1.SplitterDistance = 254;
          this.splitContainer1.TabIndex = 0;
          // 
          // DGV_Spectacle
          // 
+         this.DGV_Spectacle.AllowUserToAddRows = false;
          this.DGV_Spectacle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.DGV_Spectacle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
          this.DGV_Spectacle.Location = new System.Drawing.Point(3, 61);
+         this.DGV_Spectacle.MultiSelect = false;
          this.DGV_Spectacle.Name = "DGV_Spectacle";
-         this.DGV_Spectacle.Size = new System.Drawing.Size(250, 309);
+         this.DGV_Spectacle.ReadOnly = true;
+         this.DGV_Spectacle.RowHeadersVisible = false;
+         this.DGV_Spectacle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+         this.DGV_Spectacle.ShowEditingIcon = false;
+         this.DGV_Spectacle.Size = new System.Drawing.Size(250, 333);
          this.DGV_Spectacle.TabIndex = 1;
          // 
          // GB_Spectacle
@@ -132,13 +134,19 @@
          // 
          // DGV_Representation
          // 
+         this.DGV_Representation.AllowUserToAddRows = false;
          this.DGV_Representation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.DGV_Representation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
          this.DGV_Representation.Location = new System.Drawing.Point(3, 61);
+         this.DGV_Representation.MultiSelect = false;
          this.DGV_Representation.Name = "DGV_Representation";
-         this.DGV_Representation.Size = new System.Drawing.Size(250, 309);
+         this.DGV_Representation.ReadOnly = true;
+         this.DGV_Representation.RowHeadersVisible = false;
+         this.DGV_Representation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+         this.DGV_Representation.ShowEditingIcon = false;
+         this.DGV_Representation.Size = new System.Drawing.Size(254, 333);
          this.DGV_Representation.TabIndex = 2;
          // 
          // GB_Representation
@@ -148,7 +156,7 @@
          this.GB_Representation.Controls.Add(this.button3);
          this.GB_Representation.Location = new System.Drawing.Point(3, 3);
          this.GB_Representation.Name = "GB_Representation";
-         this.GB_Representation.Size = new System.Drawing.Size(250, 52);
+         this.GB_Representation.Size = new System.Drawing.Size(254, 52);
          this.GB_Representation.TabIndex = 3;
          this.GB_Representation.TabStop = false;
          this.GB_Representation.Text = "Représentation";
@@ -203,35 +211,11 @@
          this.editionToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
          this.editionToolStripMenuItem.Text = "Edition";
          // 
-         // statusStrip1
-         // 
-         this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.LB_ConnexionStatus});
-         this.statusStrip1.Location = new System.Drawing.Point(0, 403);
-         this.statusStrip1.Name = "statusStrip1";
-         this.statusStrip1.Size = new System.Drawing.Size(521, 22);
-         this.statusStrip1.TabIndex = 2;
-         this.statusStrip1.Text = "statusStrip1";
-         // 
-         // toolStripStatusLabel1
-         // 
-         this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-         this.toolStripStatusLabel1.Size = new System.Drawing.Size(119, 17);
-         this.toolStripStatusLabel1.Text = "Status de connexion :";
-         // 
-         // LB_ConnexionStatus
-         // 
-         this.LB_ConnexionStatus.Name = "LB_ConnexionStatus";
-         this.LB_ConnexionStatus.Size = new System.Drawing.Size(58, 17);
-         this.LB_ConnexionStatus.Text = "Connecté";
-         // 
          // Form1
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.ClientSize = new System.Drawing.Size(521, 425);
-         this.Controls.Add(this.statusStrip1);
          this.Controls.Add(this.splitContainer1);
          this.Controls.Add(this.menuStrip1);
          this.MainMenuStrip = this.menuStrip1;
@@ -249,8 +233,6 @@
          this.GB_Representation.ResumeLayout(false);
          this.menuStrip1.ResumeLayout(false);
          this.menuStrip1.PerformLayout();
-         this.statusStrip1.ResumeLayout(false);
-         this.statusStrip1.PerformLayout();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -272,9 +254,6 @@
       private System.Windows.Forms.ToolStripMenuItem editionToolStripMenuItem;
       private System.Windows.Forms.DataGridView DGV_Spectacle;
       private System.Windows.Forms.DataGridView DGV_Representation;
-      private System.Windows.Forms.StatusStrip statusStrip1;
-      private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-      private System.Windows.Forms.ToolStripStatusLabel LB_ConnexionStatus;
    }
 }
 

@@ -21,7 +21,7 @@ namespace GestionBilletterie
                              + "(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)"
                              + "(HOST=205.237.244.251)(PORT=1521)))"
                              + "(CONNECT_DATA=(SERVICE_NAME=ORCL.clg.qc.ca)));"
-                             + "User Id=" + orclUser + ";Password="+orclPass;
+                             + "User Id=" + orclUser + ";Password=" + orclPass;
       public Menu()
       {
          InitializeComponent();
@@ -40,23 +40,19 @@ namespace GestionBilletterie
          try
          {
             connection.Open();
+            LB_ConnexionStatus.Text = "Connecté";
+            LB_ConnexionStatus.ForeColor = System.Drawing.Color.Green;
          }
          catch (Exception ex)
          {
-            MessageBox.Show("Erreur de connexion");
+            LB_ConnexionStatus.Text = "Erreur";
+            LB_ConnexionStatus.ForeColor = System.Drawing.Color.Red;
          }
       }
 
       private void Menu_FormClosing(object sender, FormClosingEventArgs e)
       {
-         try
-         {
-            connection.Close();
-         }
-         catch (Exception ex)
-         {
-            MessageBox.Show("Erreur de deconnexion");
-         }
+         connection.Close();
       }
 
       private void button1_Click(object sender, EventArgs e)
