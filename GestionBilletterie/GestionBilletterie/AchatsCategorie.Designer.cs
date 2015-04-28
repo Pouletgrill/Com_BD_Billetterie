@@ -42,8 +42,8 @@
             this.BTN_Precedent = new System.Windows.Forms.Button();
             this.BTN_Suivant = new System.Windows.Forms.Button();
             this.LBL_Navigation = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.DGV_Categories = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Categories)).BeginInit();
             this.SuspendLayout();
             // 
             // LBL_Nom
@@ -147,6 +147,7 @@
             this.BTN_Precedent.TabIndex = 11;
             this.BTN_Precedent.Text = "Précedent";
             this.BTN_Precedent.UseVisualStyleBackColor = true;
+            this.BTN_Precedent.Click += new System.EventHandler(this.BTN_Precedent_Click);
             // 
             // BTN_Suivant
             // 
@@ -156,6 +157,7 @@
             this.BTN_Suivant.TabIndex = 12;
             this.BTN_Suivant.Text = "Suivant";
             this.BTN_Suivant.UseVisualStyleBackColor = true;
+            this.BTN_Suivant.Click += new System.EventHandler(this.BTN_Suivant_Click);
             // 
             // LBL_Navigation
             // 
@@ -166,20 +168,22 @@
             this.LBL_Navigation.TabIndex = 13;
             this.LBL_Navigation.Text = "0/0";
             // 
-            // dataGridView1
+            // DGV_Categories
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 95);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(518, 307);
-            this.dataGridView1.TabIndex = 14;
+            this.DGV_Categories.AllowUserToAddRows = false;
+            this.DGV_Categories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_Categories.Location = new System.Drawing.Point(12, 95);
+            this.DGV_Categories.Name = "DGV_Categories";
+            this.DGV_Categories.RowHeadersVisible = false;
+            this.DGV_Categories.Size = new System.Drawing.Size(518, 307);
+            this.DGV_Categories.TabIndex = 14;
             // 
             // AchatsCategorie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(542, 414);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DGV_Categories);
             this.Controls.Add(this.LBL_Navigation);
             this.Controls.Add(this.BTN_Suivant);
             this.Controls.Add(this.BTN_Precedent);
@@ -197,7 +201,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AchatsCategorie";
             this.Text = "AchatsCategorie";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Categories)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,7 +223,7 @@
         private System.Windows.Forms.Button BTN_Precedent;
         private System.Windows.Forms.Button BTN_Suivant;
         private System.Windows.Forms.Label LBL_Navigation;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DGV_Categories;
 
     }
 }

@@ -81,12 +81,12 @@ namespace GestionBilletterie
             cmd.Parameters.Add(pResultat);
 
             OracleParameter pNom = new OracleParameter("PNOM", OracleDbType.NVarchar2);
-            pNom.Direction = ParameterDirection.Output;
+            pNom.Direction = ParameterDirection.Input;
             pNom.Value = TB_Nom.Text;
             cmd.Parameters.Add(pNom);
 
             OracleParameter pPrenom = new OracleParameter("PPRENOM", OracleDbType.NVarchar2);
-            pPrenom.Direction = ParameterDirection.Output;
+            pPrenom.Direction = ParameterDirection.Input;
             pPrenom.Value = TB_Prenom.Text;
             cmd.Parameters.Add(pPrenom);
 
@@ -97,13 +97,56 @@ namespace GestionBilletterie
 
             adapter.Fill(dataSet, "CLIENTS");
             adapter.Dispose();
+
+            LierTextBox();
+            AfficherCategories();
         }
+
+        private void AfficherCategories()
+        {
+            OracleCommand cmd = new OracleCommand("AFFICHER", connection);
+            cmd.CommandText = "PKG_BILLETS.LISTER_CATEGORIES";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter pResultat = new OracleParameter("PRESULTAT", OracleDbType.RefCursor);
+            pResultat.Direction = ParameterDirection.ReturnValue;
+            cmd.Parameters.Add(pResultat);
+
+            OracleParameter pClient = new OracleParameter("PCLIENT", OracleDbType.NVarchar2);
+            pClient.Direction = ParameterDirection.Input;
+            pClient.Value = TB_Email.Text;
+            cmd.Parameters.Add(pClient);
+
+            OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+
+            if (dataSet.Tables.Contains("CATEGORIES"))
+                dataSet.Tables["CATEGORIES"].Clear();
+
+            adapter.Fill(dataSet, "CATEGORIES");
+            adapter.Dispose();
+
+            DGV_Categories.DataSource = new BindingSource(dataSet, "CATEGORIES");
+        }
+
+        //------ ÉVÈNEMENTS ---------------------------------------------------------------------------------
 
         private void BTN_Recherche_Click(object sender, EventArgs e)
         {
             Dissocier();
             RechercherClient();
             UpdateControls();
+        }
+
+        private void BTN_Precedent_Click(object sender, EventArgs e)
+        {
+            Precedent();
+            AfficherCategories();
+        }
+
+        private void BTN_Suivant_Click(object sender, EventArgs e)
+        {
+            Suivant();
+            AfficherCategories();
         }
     }
 }
