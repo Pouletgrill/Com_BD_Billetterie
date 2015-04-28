@@ -66,5 +66,11 @@ namespace GestionBilletterie
           AchatsCategorie dlg = new AchatsCategorie(connection);
           dlg.ShowDialog();
       }
+
+      private void button3_Click(object sender, EventArgs e)
+      {
+          ClientsFideles dlg = new ClientsFideles(connection);
+          dlg.ShowDialog();
+      }
    }
 }

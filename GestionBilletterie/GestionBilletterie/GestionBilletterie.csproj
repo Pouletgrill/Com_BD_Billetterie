@@ -51,6 +51,12 @@
     <Compile Include="AchatsCategorie.Designer.cs">
       <DependentUpon>AchatsCategorie.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClientsFideles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientsFideles.Designer.cs">
+      <DependentUpon>ClientsFideles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AchatsCategorie.resx">
       <DependentUpon>AchatsCategorie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientsFideles.resx">
+      <DependentUpon>ClientsFideles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

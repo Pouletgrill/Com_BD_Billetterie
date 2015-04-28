@@ -174,6 +174,7 @@
             this.DGV_Categories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Categories.Location = new System.Drawing.Point(12, 95);
             this.DGV_Categories.Name = "DGV_Categories";
+            this.DGV_Categories.ReadOnly = true;
             this.DGV_Categories.RowHeadersVisible = false;
             this.DGV_Categories.Size = new System.Drawing.Size(518, 307);
             this.DGV_Categories.TabIndex = 14;
