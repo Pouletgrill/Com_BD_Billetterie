@@ -72,5 +72,11 @@ namespace GestionBilletterie
           ClientsFideles dlg = new ClientsFideles(connection);
           dlg.ShowDialog();
       }
+
+      private void button4_Click(object sender, EventArgs e)
+      {
+          ImprimerBillets dlg = new ImprimerBillets(connection);
+          dlg.ShowDialog();
+      }
    }
 }
