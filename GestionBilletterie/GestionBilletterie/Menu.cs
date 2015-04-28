@@ -60,5 +60,11 @@ namespace GestionBilletterie
          Form1 dlg = new Form1(connection);
          dlg.ShowDialog();
       }
+
+      private void button2_Click(object sender, EventArgs e)
+      {
+          AchatsCategorie dlg = new AchatsCategorie(connection);
+          dlg.ShowDialog();
+      }
    }
 }
