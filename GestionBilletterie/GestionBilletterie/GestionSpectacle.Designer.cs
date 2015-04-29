@@ -41,10 +41,10 @@
          this.button3 = new System.Windows.Forms.Button();
          this.menuStrip1 = new System.Windows.Forms.MenuStrip();
          this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.vaVoirEditionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.editionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.rienToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.rienNonPlusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-         this.vaVoirEditionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
          this.splitContainer1.Panel1.SuspendLayout();
          this.splitContainer1.Panel2.SuspendLayout();
@@ -96,6 +96,7 @@
          this.DGV_Spectacle.ShowEditingIcon = false;
          this.DGV_Spectacle.Size = new System.Drawing.Size(250, 333);
          this.DGV_Spectacle.TabIndex = 1;
+         this.DGV_Spectacle.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Spectacle_CellContentClick);
          // 
          // GB_Spectacle
          // 
@@ -212,6 +213,12 @@
          this.fichierToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
          this.fichierToolStripMenuItem.Text = "Fichier";
          // 
+         // vaVoirEditionToolStripMenuItem
+         // 
+         this.vaVoirEditionToolStripMenuItem.Name = "vaVoirEditionToolStripMenuItem";
+         this.vaVoirEditionToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+         this.vaVoirEditionToolStripMenuItem.Text = "va voir Edition";
+         // 
          // editionToolStripMenuItem
          // 
          this.editionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -224,20 +231,14 @@
          // rienToolStripMenuItem
          // 
          this.rienToolStripMenuItem.Name = "rienToolStripMenuItem";
-         this.rienToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+         this.rienToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
          this.rienToolStripMenuItem.Text = "rien";
          // 
          // rienNonPlusToolStripMenuItem
          // 
          this.rienNonPlusToolStripMenuItem.Name = "rienNonPlusToolStripMenuItem";
-         this.rienNonPlusToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+         this.rienNonPlusToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
          this.rienNonPlusToolStripMenuItem.Text = "rien non plus";
-         // 
-         // vaVoirEditionToolStripMenuItem
-         // 
-         this.vaVoirEditionToolStripMenuItem.Name = "vaVoirEditionToolStripMenuItem";
-         this.vaVoirEditionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-         this.vaVoirEditionToolStripMenuItem.Text = "va voir Edition";
          // 
          // GestionSpectacle
          // 
