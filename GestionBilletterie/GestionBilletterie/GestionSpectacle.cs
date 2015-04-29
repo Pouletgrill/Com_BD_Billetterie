@@ -14,6 +14,7 @@ namespace GestionBilletterie
    public partial class GestionSpectacle : Form
    {
       DataSet dataSet = new DataSet();
+      DataSet dataSetRep = new DataSet();
       OracleConnection conn;
       public GestionSpectacle(OracleConnection connection)
       {         
@@ -64,15 +65,13 @@ namespace GestionBilletterie
       }
       public void RefreshDGVRepresentation(string numSpectacle)
       {
-         MessageBox.Show(numSpectacle);
-         /*
          try
          {
             // //déclaration de OracleCommand pour appeler la fonction avec la
             //connection conn.
             OracleCommand Oracmd = new OracleCommand("PKG_BILLETS",
             conn);
-            Oracmd.CommandText = "PKG_BILLETS.AFFICHER_SPECTACLE";
+            Oracmd.CommandText = "PKG_BILLETS.AFFICHER_REPRESENTATION";
             Oracmd.CommandType = CommandType.StoredProcedure;
             // pour une fonction, le paramètre de retour doit être déclaré en
             //premier.
@@ -81,31 +80,37 @@ namespace GestionBilletterie
             OrapameResultat.Direction = ParameterDirection.ReturnValue;
             Oracmd.Parameters.Add(OrapameResultat);
 
+            //Déclaration des paramettres
+            OracleParameter procID = new OracleParameter("pNumSpectacle", OracleDbType.Int32);
+            procID.Direction = ParameterDirection.Input;
+            procID.Value = numSpectacle;
+            Oracmd.Parameters.Add(procID);
+
             // Pour remplir le DataSet, on déclare un OracleDataAdapter pour lequel
             // on passe notre OracleCommand qui contient TOUS les paramètres.
 
             OracleDataAdapter orAdater = new OracleDataAdapter(Oracmd);
-            if (dataSet.Tables.Contains("Spectacle"))
+            if (dataSetRep.Tables.Contains("Spectacle"))
             {
-               dataSet.Tables["Spectacle"].Clear();
+               dataSetRep.Tables["Spectacle"].Clear();
             }
-            orAdater.Fill(dataSet, "Spectacle");
+            orAdater.Fill(dataSetRep, "Spectacle");
             Oracmd.Dispose();
             BindingSource bindingSource;
-            bindingSource = new BindingSource(dataSet, "Spectacle");
-            DGV_Spectacle.DataSource = bindingSource;
-            DGV_Spectacle.Columns[0].Visible = false;
+            bindingSource = new BindingSource(dataSetRep, "Spectacle");
+            DGV_Representation.DataSource = bindingSource;
+            //DGV_Representation.Columns[0].Visible = false;
          }
          catch (Exception se)
          {
             MessageBox.Show(se.Message.ToString());
          }
-          * */
       }
 
       private void DGV_Spectacle_CellContentClick(object sender, DataGridViewCellEventArgs e)
       {
-         RefreshDGVRepresentation(DGV_Spectacle.Rows[DGV_Spectacle.CurrentRow.Index].Cells[2].Value.ToString());
+         MessageBox.Show(DGV_Spectacle.Rows[DGV_Spectacle.CurrentRow.Index].Cells[0].Value.ToString());
+         RefreshDGVRepresentation(DGV_Spectacle.Rows[DGV_Spectacle.CurrentRow.Index].Cells[0].Value.ToString());
       }
    }
 }
