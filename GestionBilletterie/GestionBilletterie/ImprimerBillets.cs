@@ -45,6 +45,10 @@ namespace GestionBilletterie
             adapter.Dispose();
 
             DGV_Billets.DataSource = new BindingSource(dataSet, "BILLETS");
+            int dgvwidth = (int)(DGV_Billets.Width * 0.1f);
+            for (int i = 0; i < DGV_Billets.Columns.Count; i++)
+                DGV_Billets.Columns[i].Width = i != 2 ? dgvwidth : 2 * dgvwidth;
+            
         }
     }
 }

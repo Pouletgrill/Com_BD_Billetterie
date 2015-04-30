@@ -126,6 +126,10 @@ namespace GestionBilletterie
             adapter.Dispose();
 
             DGV_Categories.DataSource = new BindingSource(dataSet, "CATEGORIES");
+            DGV_Categories.Columns[0].Width = (int)(DGV_Categories.Width * 0.75f);
+            DGV_Categories.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            DGV_Categories.Columns[1].Width = (int)(DGV_Categories.Width * 0.25f);
+            DGV_Categories.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
         //------ ÉVÈNEMENTS ---------------------------------------------------------------------------------
