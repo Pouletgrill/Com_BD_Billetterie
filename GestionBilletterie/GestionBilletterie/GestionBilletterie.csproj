@@ -51,6 +51,12 @@
     <Compile Include="AchatsCategorie.Designer.cs">
       <DependentUpon>AchatsCategorie.cs</DependentUpon>
     </Compile>
+    <Compile Include="AjouterModifierRepresentation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterModifierRepresentation.Designer.cs">
+      <DependentUpon>AjouterModifierRepresentation.cs</DependentUpon>
+    </Compile>
     <Compile Include="AjouterModifierSpectacle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AchatsCategorie.resx">
       <DependentUpon>AchatsCategorie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterModifierRepresentation.resx">
+      <DependentUpon>AjouterModifierRepresentation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AjouterModifierSpectacle.resx">
       <DependentUpon>AjouterModifierSpectacle.cs</DependentUpon>

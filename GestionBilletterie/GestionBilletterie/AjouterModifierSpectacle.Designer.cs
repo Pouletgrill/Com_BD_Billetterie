@@ -83,6 +83,7 @@
          this.TB_Titre.Name = "TB_Titre";
          this.TB_Titre.Size = new System.Drawing.Size(121, 20);
          this.TB_Titre.TabIndex = 4;
+         this.TB_Titre.TextChanged += new System.EventHandler(this.Titre_Artiste_TextChanged);
          // 
          // TB_Artiste
          // 
@@ -90,6 +91,7 @@
          this.TB_Artiste.Name = "TB_Artiste";
          this.TB_Artiste.Size = new System.Drawing.Size(121, 20);
          this.TB_Artiste.TabIndex = 5;
+         this.TB_Artiste.TextChanged += new System.EventHandler(this.Titre_Artiste_TextChanged);
          // 
          // label4
          // 
@@ -158,7 +160,7 @@
          this.Controls.Add(this.CB_Categorie);
          this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
          this.Name = "AjouterModifierSpectacle";
-         this.Text = "AjouterModifierSpectacle";
+         this.Text = "Spectacle";
          this.Load += new System.EventHandler(this.AjouterModifierSpectacle_Load);
          ((System.ComponentModel.ISupportInitialize)(this.PB_Poster)).EndInit();
          this.ResumeLayout(false);

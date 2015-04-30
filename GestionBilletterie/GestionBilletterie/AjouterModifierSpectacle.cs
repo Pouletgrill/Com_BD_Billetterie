@@ -20,8 +20,9 @@ namespace GestionBilletterie
       OracleConnection conn = null;
       string numSpectacle = null;
       string categorieNum = null;
+      List<string> IDCategorie = new List<string>();
       string ClientId = "68674e2e8d54452";
-      string PosterURL;
+      string PosterURL = null;
 
       public AjouterModifierSpectacle(OracleConnection connection)
       {
@@ -43,12 +44,30 @@ namespace GestionBilletterie
          if (!nouveau)//modification
          {
             LoadInfo();
-
+         }
+         ButtonRefresh();
+      }
+      private void ButtonRefresh()
+      {
+         if (TB_Artiste.Text != ""           &&
+            TB_Titre.Text != ""              &&
+            CB_Categorie.SelectedIndex >=0)
+         {
+            if (nouveau && PosterURL != null)
+               BTN_OK.Enabled = true;
+            else if (nouveau && PosterURL == null)
+               BTN_OK.Enabled =false;
+            else
+               BTN_OK.Enabled = true;
+         }
+         else
+         {
+            BTN_OK.Enabled = false;
          }
       }
-
       private void LoadCategorie()
       {
+         ButtonRefresh();
          try
          {
             OracleCommand inserer = new OracleCommand("INSERTION", conn);
@@ -64,6 +83,7 @@ namespace GestionBilletterie
             while (reader.Read())
             {
                CB_Categorie.Items.Add(reader.GetString(1));//.Items.Add(reader.GetString(0));
+               IDCategorie.Add(reader.GetInt32(0).ToString());
             }
          }
          catch (Exception)
@@ -145,8 +165,8 @@ namespace GestionBilletterie
             PosterURL = UploadImage(dlg.FileName);
             PB_Poster.BackgroundImage = Image.FromFile(dlg.FileName);
          }
+         ButtonRefresh();
       }
-
 
       public string UploadImage(string image) 
       { 
@@ -165,6 +185,11 @@ namespace GestionBilletterie
          } 
          catch (Exception s) { MessageBox.Show("Something went wrong. " + s.Message); return "Failed!"; 
          } 
+      }
+
+      private void Titre_Artiste_TextChanged(object sender, EventArgs e)
+      {
+         ButtonRefresh();
       }
 
    }
