@@ -23,6 +23,7 @@ namespace GestionBilletterie
         List<string> IDCategorie = new List<string>();
         string ClientId = "68674e2e8d54452";
         string PosterLocalURL = null;
+        bool posterOriginel = true;
 
         public AjouterModifierSpectacle(OracleConnection connection)
         {
@@ -126,8 +127,9 @@ namespace GestionBilletterie
                 Categorie = reader.GetString(1);
                 TB_Titre.Text = reader.GetString(2);
                 TB_Artiste.Text = reader.GetString(3);
+                PosterLocalURL = reader.GetString(4);
                 //Remplir le picture box
-                System.IO.Stream stream = WebRequest.Create(reader.GetString(4)).GetResponse().GetResponseStream();
+                System.IO.Stream stream = WebRequest.Create(PosterLocalURL).GetResponse().GetResponseStream();
                 PB_Poster.BackgroundImage = Bitmap.FromStream(stream);
 
 
@@ -206,38 +208,50 @@ namespace GestionBilletterie
 
         private void Modifier()
         {
-            /*
             try
             {
-                OracleCommand oraAjout = new OracleCommand("PKG_GESTION", conn);
-                oraAjout.CommandText = "PKG_GESTION.INSERTIONQUESTION";
-                oraAjout.CommandType = CommandType.StoredProcedure;
+                OracleCommand oraModif = new OracleCommand("PKG_BILLETS", conn);
+                oraModif.CommandText = "PKG_BILLETS.UPDATE_SPECTACLE";
+                oraModif.CommandType = CommandType.StoredProcedure;
 
-                //Déclaration des paramettres
-                OracleParameter procQuestion = new OracleParameter("PQUESTION", OracleDbType.Varchar2, 250);
-                procQuestion.Direction = ParameterDirection.Input;
-                procQuestion.Value = TB_Question.Text;
-                oraAjout.Parameters.Add(procQuestion);
+                //Déclaration des parametres
+                OracleParameter procPNUM = new OracleParameter("PNUM", OracleDbType.Int32);
+                procPNUM.Direction = ParameterDirection.Input;
+                procPNUM.Value = numSpectacle;//retourne le premier caractère du string
+                oraModif.Parameters.Add(procPNUM);
 
-                OracleParameter procCategorie = new OracleParameter("PCATEGORIE", OracleDbType.Varchar2, 10);
+                OracleParameter procCategorie = new OracleParameter("PCATEGORIE", OracleDbType.Int32);
                 procCategorie.Direction = ParameterDirection.Input;
-                procCategorie.Value = CMB_Categories.SelectedItem.ToString()[0].ToString();//retourne le premier caractère du string
-                oraAjout.Parameters.Add(procCategorie);
+                procCategorie.Value = IDCategorie[CB_Categorie.SelectedIndex];//retourne le premier caractère du string
+                oraModif.Parameters.Add(procCategorie);
 
-                OracleParameter procBRep = new OracleParameter("REPONSE_BONNE", OracleDbType.Varchar2, 250);
-                procBRep.Direction = ParameterDirection.Input;
-                procBRep.Value = BRep;
-                oraAjout.Parameters.Add(procBRep);
+                OracleParameter procTitre = new OracleParameter("PTITRE", OracleDbType.Varchar2, 50);
+                procTitre.Direction = ParameterDirection.Input;
+                procTitre.Value = TB_Titre.Text;
+                oraModif.Parameters.Add(procTitre);
+
+                OracleParameter procArtiste = new OracleParameter("PARTISTE", OracleDbType.Varchar2, 50);
+                procArtiste.Direction = ParameterDirection.Input;
+                procArtiste.Value = TB_Artiste.Text;
+                oraModif.Parameters.Add(procArtiste);
+
+                OracleParameter procAffiche = new OracleParameter("PAFFICHE", OracleDbType.Varchar2, 100);
+                procAffiche.Direction = ParameterDirection.Input;
+                if (!posterOriginel)
+                {
+                    PosterLocalURL = UploadImage(PosterLocalURL);
+                }
+                procAffiche.Value = PosterLocalURL;
+                oraModif.Parameters.Add(procAffiche);
 
                 //Execution de la requête
-                oraAjout.ExecuteNonQuery();
-                MessageBox.Show("Insertion réusit");
+                oraModif.ExecuteNonQuery();
+                //MessageBox.Show("Insertion réusit");
             }
             catch (OracleException ex)
             {
                 MessageBox.Show(ex.Message);
             }
-             * */
         }
 
         private void BTN_Parcourir_Click(object sender, EventArgs e)
@@ -245,8 +259,9 @@ namespace GestionBilletterie
             OpenFileDialog dlg = new OpenFileDialog();
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                PosterLocalURL = dlg.FileName;
-                PB_Poster.BackgroundImage = Image.FromFile(PosterLocalURL);
+                    PosterLocalURL = dlg.FileName;
+                    PB_Poster.BackgroundImage = Image.FromFile(PosterLocalURL);
+                    posterOriginel = false;
             }
             ButtonRefresh();
         }

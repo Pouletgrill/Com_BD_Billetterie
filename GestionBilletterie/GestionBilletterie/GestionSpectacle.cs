@@ -145,11 +145,15 @@ namespace GestionBilletterie
 
         private void BTN_Ajouter_Representation_Click(object sender, EventArgs e)
         {
+            AjouterModifierRepresentation dlg = new AjouterModifierRepresentation(conn, DGV_Spectacle.Rows[DGV_Spectacle.CurrentRow.Index].Cells[0].Value.ToString());
+            dlg.ShowDialog();
             RefreshDGVSpectacle();
         }
 
         private void BTN_Modifier_Representation_Click(object sender, EventArgs e)
         {
+            AjouterModifierRepresentation dlg = new AjouterModifierRepresentation(conn, DGV_Spectacle.Rows[DGV_Spectacle.CurrentRow.Index].Cells[0].Value.ToString(), DGV_Representation.Rows[DGV_Representation.CurrentRow.Index].Cells[0].Value.ToString());
+            dlg.ShowDialog();
             RefreshDGVSpectacle();
         }
     }
