@@ -191,6 +191,7 @@
             this.BTN_Modifier_Representation.TabIndex = 1;
             this.BTN_Modifier_Representation.Text = "Modifier";
             this.BTN_Modifier_Representation.UseVisualStyleBackColor = true;
+            this.BTN_Modifier_Representation.Click += new System.EventHandler(this.BTN_Modifier_Representation_Click);
             // 
             // BTN_Ajouter_Representation
             // 
@@ -200,6 +201,7 @@
             this.BTN_Ajouter_Representation.TabIndex = 0;
             this.BTN_Ajouter_Representation.Text = "Ajouter";
             this.BTN_Ajouter_Representation.UseVisualStyleBackColor = true;
+            this.BTN_Ajouter_Representation.Click += new System.EventHandler(this.BTN_Ajouter_Representation_Click);
             // 
             // menuStrip1
             // 

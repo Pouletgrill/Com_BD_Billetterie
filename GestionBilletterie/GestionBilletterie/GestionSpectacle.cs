@@ -62,6 +62,12 @@ namespace GestionBilletterie
             {
                 MessageBox.Show(se.Message.ToString());
             }
+            DGV_Representation.DataSource = null;
+            DGV_Representation.Refresh();
+            BTN_Modifier_Spectacle.Enabled = false;
+            BTN_Supprimer_Spectacle.Enabled = false;
+            BTN_Modifier_Representation.Enabled = false;
+            BTN_Supprimer_Representation.Enabled = false;
         }
         public void RefreshDGVRepresentation(string numSpectacle)
         {
@@ -112,18 +118,22 @@ namespace GestionBilletterie
             RefreshDGVRepresentation(DGV_Spectacle.Rows[DGV_Spectacle.CurrentRow.Index].Cells[0].Value.ToString());
             BTN_Modifier_Spectacle.Enabled = true;
             BTN_Supprimer_Spectacle.Enabled = true;
+            BTN_Modifier_Representation.Enabled = false;
+            BTN_Supprimer_Representation.Enabled = false;
         }
 
         private void BTN_Ajouter_Spectacle_Click(object sender, EventArgs e)
         {
             AjouterModifierSpectacle dlg = new AjouterModifierSpectacle(conn);
             dlg.ShowDialog();
+            RefreshDGVSpectacle();
         }
 
         private void BTN_Modifier_Spectacle_Click(object sender, EventArgs e)
         {
             AjouterModifierSpectacle dlg = new AjouterModifierSpectacle(conn,DGV_Spectacle.Rows[DGV_Spectacle.CurrentRow.Index].Cells[0].Value.ToString());
             dlg.ShowDialog();
+            RefreshDGVSpectacle();
         }
 
         private void DGV_Representation_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -131,6 +141,16 @@ namespace GestionBilletterie
             //MessageBox.Show(DGV_Representation.SelectedRows.Count.ToString());
             BTN_Modifier_Representation.Enabled = true;
             BTN_Supprimer_Representation.Enabled = true;
+        }
+
+        private void BTN_Ajouter_Representation_Click(object sender, EventArgs e)
+        {
+            RefreshDGVSpectacle();
+        }
+
+        private void BTN_Modifier_Representation_Click(object sender, EventArgs e)
+        {
+            RefreshDGVSpectacle();
         }
     }
 }
