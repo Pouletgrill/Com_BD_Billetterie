@@ -82,6 +82,8 @@
             // DGV_Spectacle
             // 
             this.DGV_Spectacle.AllowUserToAddRows = false;
+            this.DGV_Spectacle.AllowUserToDeleteRows = false;
+            this.DGV_Spectacle.AllowUserToResizeRows = false;
             this.DGV_Spectacle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -96,7 +98,7 @@
             this.DGV_Spectacle.ShowEditingIcon = false;
             this.DGV_Spectacle.Size = new System.Drawing.Size(250, 333);
             this.DGV_Spectacle.TabIndex = 1;
-            this.DGV_Spectacle.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Spectacle_CellContentClick);
+            this.DGV_Spectacle.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Spectacle_CellClick);
             // 
             // GB_Spectacle
             // 
@@ -119,6 +121,7 @@
             this.BTN_Supprimer_Spectacle.TabIndex = 2;
             this.BTN_Supprimer_Spectacle.Text = "Supprimer";
             this.BTN_Supprimer_Spectacle.UseVisualStyleBackColor = true;
+            this.BTN_Supprimer_Spectacle.Visible = false;
             // 
             // BTN_Modifier_Spectacle
             // 
@@ -144,6 +147,8 @@
             // DGV_Representation
             // 
             this.DGV_Representation.AllowUserToAddRows = false;
+            this.DGV_Representation.AllowUserToDeleteRows = false;
+            this.DGV_Representation.AllowUserToResizeRows = false;
             this.DGV_Representation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -158,7 +163,7 @@
             this.DGV_Representation.ShowEditingIcon = false;
             this.DGV_Representation.Size = new System.Drawing.Size(254, 333);
             this.DGV_Representation.TabIndex = 2;
-            this.DGV_Representation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Representation_CellContentClick);
+            this.DGV_Representation.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Representation_CellClick);
             // 
             // GB_Representation
             // 
@@ -181,6 +186,7 @@
             this.BTN_Supprimer_Representation.TabIndex = 2;
             this.BTN_Supprimer_Representation.Text = "Supprimer";
             this.BTN_Supprimer_Representation.UseVisualStyleBackColor = true;
+            this.BTN_Supprimer_Representation.Visible = false;
             // 
             // BTN_Modifier_Representation
             // 

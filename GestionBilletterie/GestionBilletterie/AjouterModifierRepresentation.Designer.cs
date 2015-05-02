@@ -45,6 +45,7 @@
             this.CB_Spectacle.Name = "CB_Spectacle";
             this.CB_Spectacle.Size = new System.Drawing.Size(121, 21);
             this.CB_Spectacle.TabIndex = 0;
+            this.CB_Spectacle.SelectedIndexChanged += new System.EventHandler(this.CB_Spectacle_CB_Salle_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -71,6 +72,7 @@
             this.CB_Salle.Name = "CB_Salle";
             this.CB_Salle.Size = new System.Drawing.Size(121, 21);
             this.CB_Salle.TabIndex = 2;
+            this.CB_Salle.SelectedIndexChanged += new System.EventHandler(this.CB_Spectacle_CB_Salle_SelectedIndexChanged);
             // 
             // DTP_DateHeure
             // 
