@@ -52,14 +52,14 @@ public class TableTest extends HttpServlet
             out.println("</head>");
             out.println("<body>");
             
-            if (request.getParameter("billets").equals("on"))
+            if (request.getParameter("billets") != null)
             {
                 out.println("BILLETS");
                 out.println("<hr />");
                 out.println(EcrireTableau("{ ?= call PKG_BILLETS.LISTER_BILLETS }"));
                 out.println("<br />");
             }
-            if (request.getParameter("fideles").equals("on"))
+            if (request.getParameter("fideles") != null)
             {
                 out.println("FIDELES");
                 out.println("<hr />");
