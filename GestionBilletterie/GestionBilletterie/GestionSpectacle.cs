@@ -127,7 +127,8 @@ namespace GestionBilletterie
             BTN_Supprimer_Representation.Enabled = false;
             BTN_Ajouter_Representation.Enabled = true;
          }
-         DGV_Representation.Rows[0].Selected = false;
+         if (DGV_Representation.Rows.Count > 0)
+            DGV_Representation.Rows[0].Selected = false;
       }
 
       private void BTN_Ajouter_Spectacle_Click(object sender, EventArgs e)

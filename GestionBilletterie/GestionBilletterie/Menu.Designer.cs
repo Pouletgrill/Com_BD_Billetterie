@@ -128,7 +128,8 @@
          this.Controls.Add(this.statusStrip1);
          this.Controls.Add(this.button2);
          this.Controls.Add(this.button1);
-         this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+         this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+         this.MaximizeBox = false;
          this.Name = "Menu";
          this.Text = "Menu";
          this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Menu_FormClosing);
