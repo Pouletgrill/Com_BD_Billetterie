@@ -48,6 +48,7 @@ namespace GestionBilletterie
             int dgvwidth = (int)(DGV_Fideles.Width * 0.33f);
             DGV_Fideles.Columns[0].Width = DGV_Fideles.Columns[1].Width = DGV_Fideles.Columns[2].Width = dgvwidth;
             DGV_Fideles.Columns[0].DefaultCellStyle.Alignment = DGV_Fideles.Columns[1].DefaultCellStyle.Alignment = DGV_Fideles.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            DGV_Fideles.Sort(DGV_Fideles.Columns[2], ListSortDirection.Descending);
         }
     }
 }
